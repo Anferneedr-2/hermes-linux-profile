@@ -1,0 +1,17 @@
+_config_version: 52
+model:
+  default: claude-sonnet-5-5
+  provider: anthropic
+  base_url: https://api.anthropic.com
+terminal:
+  cwd: ~/Team-Workspace/Agents
+memory:
+  provider: builtin
+agent:
+  disabled_toolsets:
+  - browser
+  - image_gen
+  - tts
+  - cronjob
+  - computer_use
+  - code_execution

@@ -1,0 +1,13 @@
+name: agent-creator
+version: 1.0.0
+profile:
+  name: agent-creator
+  description: Take every new helper from the first question to a working, connected,
+    tested, documented and reviewed helper, built on purpose and organized the same
+    way every time.
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash
