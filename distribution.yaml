@@ -1,0 +1,13 @@
+name: team-lead
+version: 1.0.0
+profile:
+  name: team-lead
+  description: 'Keep a team''s work organised: clear tasks, one owner per deliverable,
+    a trail of every hand-over and honest reports to Robi, with the lead kept separate
+    from the writer and the reviewer.'
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash
