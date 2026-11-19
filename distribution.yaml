@@ -1,0 +1,12 @@
+name: short-text-writer
+version: 1.0.0
+profile:
+  name: short-text-writer
+  description: Give the team clear, short first drafts that follow the task exactly,
+    with every gap asked about instead of guessed.
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash
