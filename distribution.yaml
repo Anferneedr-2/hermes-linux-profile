@@ -1,0 +1,13 @@
+version: "1.0"
+environment:
+  os: linux
+  arch: x86_64
+  base_dir: /home/hermes/.hermes
+runtime:
+  headless: true
+  shell: /bin/bash
+profiles:
+  - name: profile_folder_1
+    path: ./profile_folder_1
+    state_backend: sqlite
+    enabled: true

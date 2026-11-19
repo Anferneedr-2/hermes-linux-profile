@@ -1,0 +1,4 @@
+description: Keeps a project's notes current (context, decisions, glossary) with
+  source and date, and answers questions only from those notes. Never guesses, 
+  never stores passwords or keys.
+description_auto: false

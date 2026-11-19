@@ -1,0 +1,26 @@
+# First real task for a team-building helper (multi-agent-engineer)
+
+The engineer plans and builds a team of helpers for one project. It asks questions and waits for a yes, but a one-shot run (`hermes -p multi-agent-engineer --in <its folder> -z "..."`) answers once. So you act as the relay between Robi and the engineer, in two separate one-shot runs, never one.
+
+## Sequence
+
+1. **Plan-only run.** Prompt starts "Real task, not a test.", names the team, its placement (`team:<Folder>` for a practice team, `client:<Folder>` for a client), says it uses no client data, and says: show the plan, include the lead as its own member, check the repository and helper list first, build nothing, send nothing, say what you would send after the yes, end with one question. Run in `terminal(background=true, notify=true)`.
+2. **Show Robi the plan** in plain words, about 200 words: members (one job each), team files, owners, definition of done, how each member is checked, and what request would be sent. Point out anything he did not ask for (for example the lead is a member on top of the members he named). End with one approval question. Anything he answers that is a clear yes counts; a bare "yes" to an either/or does not.
+3. **Approval run.** A second one-shot says Robi approved the plan as written, including sending the one request, and tells the engineer to send it and report. Build nothing else in that run.
+4. **Missing helpers.** If the repository lacks a generic helper the team needs, the engineer sends ONE background request to agent-creator. In that call you may only save DRAFT briefs in `briefs/` (see the pitfall about background calls in SKILL.md). Robi then opens agent-creator, approves each draft, and only then are they built with the scripts and the engineer copies them into the team.
+5. **After the build** run `check_agent.py <slug> --scenarios` for every member, read the full answers, and only then say the team works. Promotion needs Robi's "was the result right?" yes.
+6. **First real task through the team.** Members cannot start each other, so you relay. Run ONE background command that calls the lead first with a real, harmless, fictional task (it makes task files and the first log lines, writes no deliverable). Read the files it made, then run the writer on its task file and the reviewer on its review task, chained in one command with `hermes -p <member> --in <team folder> -z "Real practice task, not a test. Nothing is sent. Open <task file> and do it."`, each output going to `$TMPDIR` and followed by `cat` of the file it should have saved. Verify yourself: re-count words or limits, compare each file with its task, and check the log. Then ask Robi "Was that the result you wanted? What surprised you?".
+7. **When Robi says "you decide"** on the next step, choose from evidence, say the choice and the reason in one line, and proceed (here: run a real task first because it shows which missing team files matter).
+
+8. **Dry run for a real client team.** Prompt starts "Real task, DRY RUN ONLY." and says: build nothing, change nothing, send no request; the client's existing production helper is the first member and must not be changed or copied; read `GENERIC-HELPERS.md` and the helper list first; propose only members it can give a reason for; copy only roles from the index and say each source brief and whether it holds client data; show team file places, handoffs, owners, done, checks, what needs agent-creator, and what stays unknown. Read the plan, then show Robi the difference between what exists and what is missing.
+9. **Ambiguous reply to a plan-only step.** If Robi's answer can be read two ways (for example "no need to do other teams first") and the next action only plans or reads, say your reading in one line and run it. Ask first only when the next action builds, changes or sends.
+
+## Pitfalls
+
+- Say in the plan that nothing exists yet: the team folder is created by the build scripts, not by the engineer by hand.
+- The engineer's request must hold role, reason and team context and no client data; read it before it goes if Robi asks.
+- Do not call a draft "built": a draft is a brief waiting for Robi's approval.
+- Team files (`Team/TEAM-MAP.md`, `Team/SHARED-BRIEF.md`) are not created by the build scripts, and the engineer and agent-creator may not write in the team folder. Without a shared brief the members do not log their own handovers: only the lead wrote the handover log, and the writer and reviewer left it alone. Name this gap to Robi after a first run and offer the two files as a draft in `briefs/` for him to place; do not claim the "log of who handed what" rule works until a member has written its own line.
+- Member test prompts that mention a task but give no task file make the writer and reviewer ask for the task number or refuse. That is correct behaviour and shows as REVIEW, not FAIL; read the answer, do not rewrite the helper. Real runs, where the lead has made the task file, pass cleanly.
+- Scenario tests leave files in the team's `Work/` folders (for example a review note). Tell Robi; you may not delete them, and they can be mistaken for real work.
+- Each member's one-shot run ends with a question to Robi (for example whether to leave CHANGELOG or status updates to the lead). Relay it only if it changes something; do not answer on his behalf.

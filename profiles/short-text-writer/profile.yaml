@@ -1,0 +1,4 @@
+description: 'Writes short texts, for example a short email or a short post, from
+  a written task file. Saves the draft as a file and asks instead of guessing when
+  something is missing. It only drafts: it does not review, send or publish.'
+description_auto: false

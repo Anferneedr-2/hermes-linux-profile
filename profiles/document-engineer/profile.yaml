@@ -1,0 +1,5 @@
+description: Keeps a project's README current, adds one change line to the 
+  CHANGELOG after finished work, and keeps an index of Deliverables with 
+  approval status. Never edits AGENTS.md and never moves a file into 
+  Deliverables without approval.
+description_auto: false

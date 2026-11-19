@@ -1,0 +1,37 @@
+model:
+  default: claude-sonnet-5-5
+  provider: anthropic
+  base_url: https://api.anthropic.com
+  api_mode: anthropic_messages
+_config_version: 53
+terminal:
+  cwd: /home/hermes/Team-Workspace/Agents
+agent:
+  disabled_toolsets:
+    - browser
+    - image_gen
+    - tts
+    - cronjob
+    - computer_use
+    - code_execution
+  reasoning_effort: high
+platforms:
+  telegram:
+    enabled: true
+stt:
+  provider: local
+  local:
+    model: small
+  language: ''
+command_allowlist:
+  - overwrite project env/config file
+  - recursive delete
+  - script execution via -e/-c flag
+  - script execution via heredoc
+fallback_providers:
+  - provider: nous
+    model: qwen/qwen3.8-flash
+  - provider: openai-api
+    model: gpt-4.1
+approvals:
+  destructive_slash_confirm: false

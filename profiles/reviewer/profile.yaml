@@ -1,0 +1,4 @@
+description: Checks a finished draft against the task goal and the definition of
+  done, saves review notes as a file, and passes the draft or returns it to the 
+  writer with reasons. It is separate from the writer and never edits the draft.
+description_auto: false
