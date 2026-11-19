@@ -1,0 +1,12 @@
+name: memory-manager
+version: 1.0.0
+profile:
+  name: memory-manager
+  description: Give a project one trustworthy source of what is known, so helpers
+    answer from notes and never from guesses.
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash

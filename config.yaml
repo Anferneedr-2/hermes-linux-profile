@@ -1,0 +1,21 @@
+_config_version: 52
+model:
+  default: claude-sonnet-5-5
+  provider: anthropic
+  base_url: https://api.anthropic.com
+terminal:
+  cwd: ~/Team-Workspace/Generic-Helpers
+memory:
+  provider: builtin
+agent:
+  disabled_toolsets:
+  - web
+  - browser
+  - terminal
+  - image_gen
+  - tts
+  - code_execution
+  - cronjob
+  - delegation
+  - computer_use
+  - connections
