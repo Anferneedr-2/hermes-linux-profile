@@ -1,0 +1,12 @@
+name: reviewer
+version: 1.0.0
+profile:
+  name: reviewer
+  description: Give the team an independent, honest check so that only drafts that
+    meet the task go forward.
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash
