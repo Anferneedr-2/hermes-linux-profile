@@ -1,0 +1,11 @@
+name: team-workspace-agents
+version: 1.0.0
+profile:
+  name: team-workspace-agents
+  description: Agents workspace factory repository
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash
