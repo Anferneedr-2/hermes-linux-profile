@@ -1,0 +1,12 @@
+name: document-engineer
+version: 1.0.0
+profile:
+  name: document-engineer
+  description: Keep every project's documents current and honest, so anyone can see
+    what changed and which files are final.
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash
