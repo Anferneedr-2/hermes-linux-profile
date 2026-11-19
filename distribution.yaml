@@ -1,0 +1,13 @@
+name: multi-agent-engineer
+version: 1.0.0
+profile:
+  name: multi-agent-engineer
+  description: Give each client project a well-built team of helpers, set up the same
+    safe way every time, each member with one job, its own memory and the project's
+    own data.
+environment:
+  os: linux
+  arch: x86_64
+runtime:
+  headless: true
+  shell: /bin/bash
